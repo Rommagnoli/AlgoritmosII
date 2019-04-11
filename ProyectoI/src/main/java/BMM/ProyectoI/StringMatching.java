@@ -22,6 +22,32 @@ Calcula  String  Matching  usando  Fuerza  Bruta .
         return -1;
     }
 
+    public static int matchKmp( String text , String pattern ) {
+            int i = 0;
+            int j = 0;
+            int position = -1;
+            Boolean found = false;
+            int sizeT = text.length();
+            int sizeP = pattern.length();
+
+            while ((!(found)) && (i < sizeT)) {
+                while (text.charAt(i) != pattern.charAt(j)) {
+                    	if (j == 0)
+                          i++;
+                      j = 0;
+                }
+                i++;
+                j++;
+                if (j == sizeP){
+                    found = true;
+                    position = (i - sizeP);
+                }
+            }
+            if (found)
+                return position;
+            return position;
+
+        }
 
 /*
 ∗Calcula  String  Matching  usando Knuth−Morris−Pratt .
