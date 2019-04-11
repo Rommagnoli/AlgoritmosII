@@ -8,7 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        String s = "romanagustin hola josue";
+        String s = "romanyagustin hola josue";
         System.out.println(StringMatching.match(s,"hola"));
     }
 }
