@@ -49,15 +49,6 @@ Calcula  String  Matching  usando  Fuerza  Bruta .
 
         }
 
-/*
-∗Calcula  String  Matching  usando Knuth−Morris−Pratt .
-∗@param text  texto  a  analizar
-∗@param pattern  patron  a  buscar  en  e l  texto
-∗@returns  indice  de  la  primera  ocurrencia  de  pattern  en  text ,  en  caso  que  exista.
-*/
-public static int matchKmp(String text, String pattern){
-    return -1;
-}
 
 
 
