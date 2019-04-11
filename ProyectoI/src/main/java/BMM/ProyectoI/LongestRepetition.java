@@ -1,3 +1,5 @@
+package BMM.ProyectoI;
+
 public class LongestRepetition{
 
     /*
@@ -17,13 +19,5 @@ public class LongestRepetition{
     public static String repetitionDc(String text){
         return "";
     }
-
-
-
-
-
-
-
-
 
 }
