@@ -14,7 +14,7 @@ public class App
         */
         ArrayList<String> todasCad = new ArrayList<String>();
 
-        todasCad = LongestRepetition.subcadenas("abaaadsaaavbbbbbdaffffffsybbbbbaffffffd");
+        todasCad = LongestRepetition.subcadenas("yvaeltercero,yvaelterceroygolderiver,gooooooool");
         System.out.println(LongestRepetition.cadRepetidas(todasCad));
     }
 }
