@@ -8,4 +8,4 @@ for file in `ls target/dependency`; do export CLASSPATH=$CLASSPATH:target/depend
 export CLASSPATH=$CLASSPATH:target/classes
 
 echo "*******************  EXECUTING PROGRAM ******************************************"
-java ProyectoI.src.main.java.BMM.ProyectoI.App
+java BMM.ProyectoI.App
