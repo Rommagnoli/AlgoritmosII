@@ -44,10 +44,10 @@ public class StringMatching{
 	    int sizeP = pattern.length();
 	
 	    while ((!(found)) && (i < sizeT)) {
-	        while (text.charAt(i) != pattern.charAt(j)) {
+	        while ((i < sizeT) && (text.charAt(i) != pattern.charAt(j))) {
 	        	if (j == 0)
 	        		i++;
-	            	j = 0;
+	            j = 0;
 	        }
 	        i++;
 	        j++;
