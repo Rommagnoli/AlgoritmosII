@@ -10,6 +10,6 @@ public class LongestRepetitionTest {
         String prueba = "asdholaasdmholasphola";
         String res = LongestRepetition.cadRepetidas(LongestRepetition.subcadenas(prueba));
         assertEquals("hola", res);
-}
+    }
 
 }
