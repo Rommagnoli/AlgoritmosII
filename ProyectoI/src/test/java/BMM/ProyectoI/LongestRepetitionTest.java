@@ -1,15 +1,14 @@
 package BMM.ProyectoI;
 
-import org.junit.Test;
-import ProyectoI.LongestRepetition;
-import static org.junit.Assert.assertEquals;
+import org.junit.*;
+import static org.junit.Assert.*;
 
 public class LongestRepetitionTest {
 
     @Test
     public void testCadRepetidas() {
-        String prueba = "asdholaasdmholasphola"
-        String res = cadRepetidas(subcadenas(prueba));
+        String prueba = "asdholaasdmholasphola";
+        String res = LongestRepetition.cadRepetidas(LongestRepetition.subcadenas(prueba));
         assertEquals("hola", res);
 }
 
