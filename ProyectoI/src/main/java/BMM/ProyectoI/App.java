@@ -39,6 +39,10 @@ public class App {
     	todasCad = LongestRepetition.subcadenas(textLR);
         System.out.println("La cadena que se repite es: " + LongestRepetition.cadRepetidas(todasCad));
         Long endTime2 = System.currentTimeMillis() - iniTime2;
-        System.out.println("El tiempo para cadRepetidas es: " + endTime2 + " milisegundos");
+        System.out.println("El tiempo para cadRepetidas es: " + endTime2 + " milisegundos\n");
+    
+        String ejemplo = "asdasdas";
+        System.out.println(LongestRepetition.repetitionDc(ejemplo));
+    
     }
 }
