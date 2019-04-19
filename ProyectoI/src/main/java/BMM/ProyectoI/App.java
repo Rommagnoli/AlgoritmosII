@@ -41,7 +41,7 @@ public class App {
         Long endTime2 = System.currentTimeMillis() - iniTime2;
         System.out.println("El tiempo para cadRepetidas es: " + endTime2 + " milisegundos\n");
     
-        String ejemplo = "asdasdas";
-        System.out.println(LongestRepetition.repetitionDc(ejemplo));
+        String ejemplo = "kjsdbkjwefjwasdasdjwhdi";
+        System.out.println("Tamaño de la cadena que se repite: " + LongestRepetition.repetitionDc(ejemplo));
     }
 }

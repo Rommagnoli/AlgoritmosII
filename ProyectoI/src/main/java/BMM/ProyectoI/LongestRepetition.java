@@ -69,6 +69,9 @@ public class LongestRepetition{
     ∗	@returns subString de mayor longitud que se repite.
     */
     public static int repetitionDc(String text){
+    	//int vk1 = 0;
+    	//int vk2 = 0;
+    	//int posC = 0;
         int tamaño = text.length();
         if (tamaño <= 1)
         	return 0;
@@ -99,9 +102,38 @@ public class LongestRepetition{
                 k2 = getZ(z4, (cntr - tamañoU) + 1);
         	}
         	if ((k1 + k2) >= l) {
-        		result = Math.max(result,l);
+        		if (result<l) {
+        			result = l;
+        					//Math.max(result,l);
+        			int posC;
+        			if (cntr < tamañoU) {	
+        				posC = cntr;
+	        			int posV = tamañoU;
+	        		 	while ((posC >= 0) && (text.charAt(posC) == text.charAt(posV))) {
+	        		 		posC--;
+	        		 		posV--; 
+	        		 	}
+	        		 	String rep = text.substring(posC+1, posV + 1);  //oas | dasd
+	        		 	System.out.println("Cadena que se repite: " + rep);
+	        		} else {
+	        			posC = cntr;
+	        			int posV = tamañoU - 1;
+	        		 	while ((posC < text.length()) && (text.charAt(posC) == text.charAt(posV))) {
+	        		 		posC++;
+	        		 		posV++;
+	        		 	}
+	        		 	String rep = text.substring(posV , posC);  //oas | dasd
+	        		 	System.out.println("Cadena que se repite: " + rep);
+	        		
+	        		}
+	        		
+        		 	//vk1 = k1;
+        		 	//vk2 = k2;
+        		 	//posC = cntr;
+        		}
         	}
         }
+        //System.out.println(vk1+" "+vk2+" "+posC);
     	return result;
     }
     
