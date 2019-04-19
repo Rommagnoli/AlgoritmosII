@@ -14,25 +14,33 @@ public class LongestRepetition{
     ∗	@returns subString  de mayor longitud que se repite.
     */
 	public static String cadRepetidas(ArrayList<String> l){
-        String current = "";
-        boolean repeat = false;
-        int sizeList = l.size();
-        for (int i=0;i<sizeList-1;i++){
-            int j=i+1;
-            while(j<sizeList && (!repeat)){
-                if (l.get(i).equals(l.get(j))){
-                    repeat = true;
-                    if (current.length()<l.get(j).length()){
-                        current = l.get(j);
-                    }
-                }
-                j++;
-            }
-            repeat=false;
-        }
-        return current;
+        String res = "";
+		String aux = "";
+		int mid;
+		String izq;
+		String der;
+		int tam;
+
+		for(int i = 0;i < l.size();i++){
+			aux = l.get(i);
+			tam = aux.length();
+			if ((tam > 2) && (tam % 2 == 0)){
+				mid = (tam/2)-1;
+				izq = aux.substring(0,mid + 1);
+				der = aux.substring(mid + 1,tam);
+				if (izq.equals(der) && (res.length() < izq.length()))
+					res = izq;
+			}
+			else{
+				if (tam == 2){
+					if ((aux.charAt(0) == aux.charAt(1)) && (res.length() < 1))
+						res = aux.charAt(0) + "";
+				}
+			}
+		}
+		return res;
     }
-	
+
 	/**
 	 *	Metodo que va creando las subcadenas dado una string,
 	 *	cada posicion del arreglo contiene un caracter mas que el anterior.
@@ -54,7 +62,7 @@ public class LongestRepetition{
         }
         return res;
     }
-    
+
     /**
     *	Metodo que calcula Longest repetition usando D&C.
     ∗	@param text texto a analizar.
