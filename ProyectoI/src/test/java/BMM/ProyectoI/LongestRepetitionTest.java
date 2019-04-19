@@ -8,7 +8,7 @@ public class LongestRepetitionTest {
     //Tests para corroborar el funcionamiento del metodo cadRepeat de la clase LongestRepetition.
     @Test
     public void testCadRepetidas() {
-        String prueba = "asdholaasdmholasphola";
+        String prueba = "asdholaasdmholaholasphola";
         String res = LongestRepetition.cadRepetidas(LongestRepetition.subcadenas(prueba));
         assertEquals("hola", res);
     }

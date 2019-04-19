@@ -34,11 +34,12 @@ public class App {
     	ArrayList<String> todasCad = new ArrayList<String>();
     	Long iniTime2 = System.currentTimeMillis();
     	System.out.println("------ INCISO 2 ------\n");
-    	String textLR = "y va el tercero,y va el tercero y gol de river, gooooooool\n";
+    	String textLR = "y va el tercero,y va el tercero, y gol de river, gooooooool\n";
     	System.out.println("Texto: " + textLR);
     	todasCad = LongestRepetition.subcadenas(textLR);
         System.out.println("La cadena que se repite es: " + LongestRepetition.cadRepetidas(todasCad));
         Long endTime2 = System.currentTimeMillis() - iniTime2;
         System.out.println("El tiempo para cadRepetidas es: " + endTime2 + " milisegundos");
+
     }
 }
