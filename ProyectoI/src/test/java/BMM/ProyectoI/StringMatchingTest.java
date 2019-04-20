@@ -33,8 +33,8 @@ public class StringMatchingTest{
 
     @Test
     public void testMatchCadenasKmpNotFound(){
-        String text = "aswqqeavooewzaratewqxcvsa";
-        String cadMatch = "zarati";
+        String text = "hola";
+        String cadMatch = "z";
         int res = StringMatching.matchKmp(text,cadMatch);
         assertEquals(-1,res);
     }
