@@ -8,34 +8,34 @@ public class StringMatchingTest{
     //Tests para corroborar el funcionamiento del metodo match de la clase StringMatching.
     @Test
     public void testMatchCadenas(){
-        String text = "dsfaksvmsidododfsasd";
+        String texto = "dsfaksvmsidododfsasd";
         String cadMatch = "dodo";
-        int res = StringMatching.match(text,cadMatch);
-        assertEquals(10,res);
+        int resultado = StringMatching.match(texto,cadMatch);
+        assertEquals(10,resultado);
     }
 
     @Test
     public void testMatchCadenasNotFound(){
-        String text = "dsfaksvmsidododfsasd";
+        String texto = "dsfaksvmsidododfsasd";
         String cadMatch = "hola";
-        int res = StringMatching.match(text,cadMatch);
-        assertEquals(-1,res);
+        int resultado = StringMatching.match(texto,cadMatch);
+        assertEquals(-1,resultado);
     }
 
     //Tests para corroborar el funcionamiento del metodo matchKmp de la clase StringMatching.
     @Test
     public void testMatchCadenasKmp(){
-        String text = "aswqqeavooewzaratewqxcvsa";
+        String texto = "aswqqeavooewzaratewqxcvsa";
         String cadMatch = "zarate";
-        int res = StringMatching.matchKmp(text,cadMatch);
-        assertEquals(12,res);
+        int resultado = StringMatching.matchKmp(texto,cadMatch);
+        assertEquals(12,resultado);
     }
 
     @Test
     public void testMatchCadenasKmpNotFound(){
-        String text = "hola";
-        String cadMatch = "z";
-        int res = StringMatching.matchKmp(text,cadMatch);
-        assertEquals(-1,res);
+        String texto = "qwertyuiopasdf";
+        String cadMatch = "zeta";
+        int resultado = StringMatching.matchKmp(texto,cadMatch);
+        assertEquals(-1,resultado);
     }
 }

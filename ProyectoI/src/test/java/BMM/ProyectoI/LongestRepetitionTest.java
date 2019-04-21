@@ -9,15 +9,30 @@ public class LongestRepetitionTest {
     @Test
     public void testCadRepetidas() {
         String prueba = "asdholaasdmholaholasphola";
-        String res = LongestRepetition.cadRepetidas(LongestRepetition.subcadenas(prueba));
-        assertEquals("hola", res);
+        String resultado = LongestRepetition.cadRepetidas(LongestRepetition.subcadenas(prueba));
+        assertEquals("hola", resultado);
     }
 
     @Test
     public void testCadRepetidasNotRepeat() {
         String prueba = "abcdefghijklmnopqrst";
-        String res = LongestRepetition.cadRepetidas(LongestRepetition.subcadenas(prueba));
-        assertEquals("", res);
+        String resultado = LongestRepetition.cadRepetidas(LongestRepetition.subcadenas(prueba));
+        assertEquals("", resultado);
+    }
+
+    //Tests para corroborar el funcionamiento del metodo repetitionDC de la clase LongestRepetition.
+    @Test
+    public void testRepetitionDC(){
+        String prueba = "qwerasdasdokp";
+        String resultado = LongestRepetition.repetitionDc(prueba);
+        assertEquals("asd",resultado);
+    }
+
+    @Test
+    public void testRepetitionDCNotFound(){
+        String prueba = "qwertyuipo";
+        String resultado = LongestRepetition.repetitionDc(prueba);
+        assertEquals("",resultado);
     }
 
 }

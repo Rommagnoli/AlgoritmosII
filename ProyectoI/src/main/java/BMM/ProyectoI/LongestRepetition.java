@@ -10,86 +10,84 @@ public class LongestRepetition{
 
     /**
     *	Metodo que calcula  Longest repetition  usando  Fuerza  Bruta.
-    ∗	@param text texto a analizar.
+    ∗	@param texto texto a analizar.
     ∗	@returns subString  de mayor longitud que se repite.
     */
 	public static String cadRepetidas(ArrayList<String> l){
-        String res = "";
-		String aux = "";
+        String cadRep = "";
+		String cadAux = "";
 		int mid;
 		String izq;
 		String der;
-		int tam;
+		int tamaño;
 
 		for(int i = 0;i < l.size();i++){
-			aux = l.get(i);
-			tam = aux.length();
-			if ((tam > 2) && (tam % 2 == 0)){
-				mid = (tam/2)-1;
-				izq = aux.substring(0,mid + 1);
-				der = aux.substring(mid + 1,tam);
-				if (izq.equals(der) && (res.length() < izq.length()))
-					res = izq;
+			cadAux = l.get(i);
+			tamaño = cadAux.length();
+			if ((tamaño > 2) && (tamaño % 2 == 0)){
+				mid = (tamaño/2)-1;
+				izq = cadAux.substring(0,mid + 1);
+				der = cadAux.substring(mid + 1,tamaño);
+				if (izq.equals(der) && (cadRep.length() < izq.length()))
+					cadRep = izq;
 			}
 			else{
-				if (tam == 2){
-					if ((aux.charAt(0) == aux.charAt(1)) && (res.length() < 1))
-						res = aux.charAt(0) + "";
+				if (tamaño == 2){
+					if ((cadAux.charAt(0) == cadAux.charAt(1)) && (cadRep.length() < 1))
+						cadRep = cadAux.charAt(0) + "";
 				}
 			}
 		}
-		return res;
+		return cadRep;
     }
 
 	/**
 	 *	Metodo que va creando las subcadenas dado una string,
 	 *	cada posicion del arreglo contiene un caracter mas que el anterior.
-	 ∗	@param text texto a analizar.
+	 ∗	@param texto texto a analizar.
 	 ∗	@returns subString de mayor longitud que se repite.
 	 */
-    public static ArrayList<String> subcadenas(String text) {
-        int size = text.length();
-        ArrayList<String> res = new ArrayList<String>();
-        res.add("");
-        String aux = "";
+    public static ArrayList<String> subcadenas(String texto) {
+        int tamaño = texto.length();
+        ArrayList<String> arrSub = new ArrayList<String>();
+        arrSub.add("");
+        String subC = "";
 
-        for (int i = 0; i < size; i++){
-            for (int j = i; j < size; j++){
-                aux = aux + text.charAt(j);
-                res.add(aux);
+        for (int i = 0; i < tamaño; i++){
+            for (int j = i; j < tamaño; j++){
+                subC = subC + texto.charAt(j);
+                arrSub.add(subC);
             }
-            aux="";
+            subC="";
         }
-        return res;
+        return arrSub;
     }
 
     /**
     *	Metodo que calcula Longest repetition usando D&C.
-    ∗	@param text texto a analizar.
+    ∗	@param texto texto a analizar.
     ∗	@returns subString de mayor longitud que se repite.
     */
-    public static int repetitionDc(String text){
-    	//int vk1 = 0;
-    	//int vk2 = 0;
-    	//int posC = 0;
-        int tamaño = text.length();
+    public static String repetitionDc(String texto){
+        int tamaño = texto.length();
+		String repeticion = "";
         if (tamaño <= 1)
-        	return 0;
-        
+        	return repeticion;
+
         int tamañoU = tamaño/2;
         int tamañoV = tamaño - tamañoU;
-        String u = text.substring(0, tamañoU);
-        String v = text.substring(tamañoU);
-        String ru = reverse(u);
-        String rv = reverse(v);
-        
-        int result = Math.max(repetitionDc(u), repetitionDc(v));   
-        
+        String u = texto.substring(0, tamañoU);
+        String v = texto.substring(tamañoU);
+        String ru = reversa(u);
+        String rv = reversa(v);
+
+		int result = Math.max(repetitionDc(u).length(), repetitionDc(v).length());
+
         ArrayList<Integer> z1 = zFuncion(ru);
         ArrayList<Integer> z2 = zFuncion(v + '#' + u);
         ArrayList<Integer> z3 = zFuncion(ru + '#' + rv);
         ArrayList<Integer> z4 = zFuncion(v);
-    	
+
         for (int cntr = 0; cntr < tamaño; cntr++) {
         	int l, k1, k2;
         	if (cntr < tamañoU) {
@@ -104,88 +102,77 @@ public class LongestRepetition{
         	if ((k1 + k2) >= l) {
         		if (result<l) {
         			result = l;
-        					//Math.max(result,l);
+
         			int posC;
-        			if (cntr < tamañoU) {	
+        			if (cntr < tamañoU) {
         				posC = cntr;
 	        			int posV = tamañoU;
-	        		 	while ((posC >= 0) && (text.charAt(posC) == text.charAt(posV))) {
+	        		 	while ((posC >= 0) && (texto.charAt(posC) == texto.charAt(posV))) {
 	        		 		posC--;
-	        		 		posV--; 
+	        		 		posV--;
 	        		 	}
-	        		 	String rep = text.substring(posC+1, posV + 1);  //oas | dasd
-	        		 	System.out.println("Cadena que se repite: " + rep);
+	        		 	repeticion = texto.substring(posC+1, posV + 1);
 	        		} else {
 	        			posC = cntr;
 	        			int posV = tamañoU - 1;
-	        		 	while ((posC < text.length()) && (text.charAt(posC) == text.charAt(posV))) {
+	        		 	while ((posC < texto.length()) && (texto.charAt(posC) == texto.charAt(posV))) {
 	        		 		posC++;
 	        		 		posV++;
 	        		 	}
-	        		 	String rep = text.substring(posV , posC);  //oas | dasd
-	        		 	System.out.println("Cadena que se repite: " + rep);
-	        		
+	        		 	repeticion = texto.substring(posV , posC);
 	        		}
-	        		
-        		 	//vk1 = k1;
-        		 	//vk2 = k2;
-        		 	//posC = cntr;
         		}
         	}
         }
-        //System.out.println(vk1+" "+vk2+" "+posC);
-    	return result;
+    	return repeticion;
     }
-    
-    private static int getZ(ArrayList<Integer> z, int i) {
-		if (0 <= i && i < z.size())
-			return z.get(i);
+
+	/**
+	*	Metodo para obtener la informacion guardada en una posicion del
+	*	ArrayList
+	*	@param array arreglo que genera el metodo zFunction
+	*	@param i posicion de la informacion en el arreglo
+	*	@return informacion alojada en z[i]
+	*/
+    private static int getZ(ArrayList<Integer> array, int i) {
+		if (0 <= i && i < array.size())
+			return array.get(i);
 	    else
     	    return 0;
     }
-    
-    public static ArrayList<Integer> zFuncion(String text){ 			
-    	int n = text.length();
+
+	/**
+	*	Metodo para la optimizacion en repetitionDc
+	*	@param texto texto para procesar
+	*	@return un vector con la longitud del prefijo comun mas largo entre el
+	*	texto y el sufijo del texto que comienza en i.
+	*/
+    public static ArrayList<Integer> zFuncion(String texto){
+    	int n = texto.length();
     	ArrayList<Integer> z = new ArrayList<Integer>();
     	for (int i = 0; i < n; i++) {
     		z.add(i, 0);
     	}
     	for (int i = 1; i < n; i++) {
-			while ((i + z.get(i) < n) && (text.charAt(z.get(i)) == text.charAt(i + z.get(i)))) {
+			while ((i + z.get(i) < n) && (texto.charAt(z.get(i)) == texto.charAt(i + z.get(i)))) {
 				Integer sumValor = (z.get(i) + 1);
 				z.set(i, sumValor);
 			}
 		}
 		return z;
     }
- 
-    private static String reverse(String text) {
-    	String reverse = "";
-    	for (int i = text.length() - 1; i >= 0; i--) {
-    		reverse = reverse + text.charAt(i);
-    	}
-    	return reverse;
-    }
-    
-    /*
-    public static ArrayList<Integer> zFuncion(String text){ 			
-		int n = text.length();
-		ArrayList<Integer> z = new ArrayList<Integer>();		
-		for (int i = 1, l = 0, r = 0; i < n; ++i) {						
-			if (i <= r) {												
-				Integer minimo = Math.min(r - i + 1, z.get(i - l));		
-				z.add(i, minimo);
-			}
-			while ((i + z.get(i) < n) && (text.charAt(z.get(i)) == text.charAt(i + z.get(i)))) {
-				Integer sumValor = (z.get(i) + 1);
-				z.add(i, sumValor);
-			}
-			if (i + z.get(i) - 1 > r) {
-				l = i;
-				r = i + z.get(i) - 1;
-			}
-		}				
-    	return z;
-    }
+
+	/**
+	*	Metodo que invierte una cadena.
+	*	@param texto texto a procesar
+		@return el mismo texto invertido.
 	*/
+    private static String reversa(String texto) {
+    	String reversa = "";
+    	for (int i = texto.length() - 1; i >= 0; i--) {
+    		reversa = reversa + texto.charAt(i);
+    	}
+    	return reversa;
+    }
+
 }
